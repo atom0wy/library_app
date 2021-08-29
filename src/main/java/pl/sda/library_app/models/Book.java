@@ -3,7 +3,7 @@ package pl.sda.library_app.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.sda.library_app.enumerated.Status;
+import pl.sda.library_app.enumerated.BookStatus;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,5 +23,5 @@ public class Book {
     private String author;
     private String yearOfRelease;
     private String genre;
-    private Status status;
+    private BookStatus status;
 }
