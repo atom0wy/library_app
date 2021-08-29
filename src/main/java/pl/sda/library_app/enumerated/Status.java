@@ -1,4 +1,4 @@
-package pl.sda.library_app.models;
+package pl.sda.library_app.enumerated;
 
 public enum Status {
     IN_STOCK,

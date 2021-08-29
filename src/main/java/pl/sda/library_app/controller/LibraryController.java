@@ -1,4 +1,4 @@
-package pl.sda.library_app.controllers;
+package pl.sda.library_app.controller;
 
 import org.springframework.stereotype.Controller;
 
