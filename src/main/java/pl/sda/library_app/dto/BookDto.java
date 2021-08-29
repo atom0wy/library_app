@@ -1,7 +1,7 @@
 package pl.sda.library_app.dto;
 
 import lombok.Data;
-import pl.sda.library_app.enumerated.Status;
+import pl.sda.library_app.enumerated.BookStatus;
 
 import javax.persistence.Entity;
 
@@ -14,5 +14,5 @@ public class BookDto {
     private String author;
     private String yearOfRelease;
     private String genre;
-    private Status status;
+    private BookStatus status;
 }
