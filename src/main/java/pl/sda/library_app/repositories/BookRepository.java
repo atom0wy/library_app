@@ -5,5 +5,5 @@ import pl.sda.library_app.models.Book;
 
 import java.util.UUID;
 
-public interface BookRepository extends JpaRepository<Book, UUID> {
+public interface BookRepository extends JpaRepository<Book, Long> {
 }

@@ -5,5 +5,5 @@ import pl.sda.library_app.models.Customer;
 
 import java.util.UUID;
 
-public interface CustomerRepository extends JpaRepository<Customer, UUID> {
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
 }

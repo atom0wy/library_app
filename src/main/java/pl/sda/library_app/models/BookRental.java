@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 public class BookRental {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private LocalDateTime rentDate;
     private LocalDateTime returnDate;
