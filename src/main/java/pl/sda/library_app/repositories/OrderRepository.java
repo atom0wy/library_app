@@ -18,12 +18,9 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     @Query(value = "select o.* from orders o where o.status in ('LENT', 'RESERVED')", nativeQuery = true)
     List<Book> fetchOrdersInProcessing();
 
-    @Query(value = "select o.* from orders o where o.status = IN_STOCK", nativeQuery = true)
-    List<Book> countOrdersInInStockStatus();
+    @Query(value = "select distinct b.name from book b order by b.name where o.status in ('LENT', 'RESERVED')", nativeQuery = true)
+    List<Book> listAllUniqueBookTitlesFromOrders();
 
-    @Query(value = "select distinct b.name from book b order by b.name", nativeQuery = true)
-    List<Book> listAllUniqueBookTitles();
-
-    @Query(value = "select distinct b.author from book b order by b.author", nativeQuery = true)
-    List<Book> listAllUniqueBookAuthors();
+    @Query(value = "select distinct b.author from book b order by b.author where o.status in ('LENT', 'RESERVED')", nativeQuery = true)
+    List<Book> listAllUniqueBookAuthorsFromOrders();
 }
