@@ -1,5 +1,6 @@
 package pl.sda.library_app.models;
 
+import lombok.Data;
 import pl.sda.library_app.enumerated.Role;
 
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
