@@ -6,7 +6,6 @@ import pl.sda.library_app.enumerated.BookStatus;
 
 import javax.persistence.Entity;
 
-@Entity
 @Data
 @AllArgsConstructor
 public class BookDto {

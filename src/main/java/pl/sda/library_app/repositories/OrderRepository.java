@@ -12,18 +12,18 @@ import java.util.UUID;
 
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
-    @Query("select o.* from orders o where o.status = ?")
+    @Query(value = "select * from orders o where o.status = :status", nativeQuery = true)
     List<Book> findAllByStatus(BookStatus status);
 
-    @Query("select o.* from orders o where o.status in ('LENT', 'RESERVED')")
+    @Query(value = "select o.* from orders o where o.status in ('LENT', 'RESERVED')", nativeQuery = true)
     List<Book> fetchOrdersInProcessing();
 
-    @Query("select o.* from orders o where o.status = IN_STOCK")
+    @Query(value = "select o.* from orders o where o.status = IN_STOCK", nativeQuery = true)
     List<Book> countOrdersInInStockStatus();
 
-    @Query("select distinct b.name from book b order by b.name")
+    @Query(value = "select distinct b.name from book b order by b.name", nativeQuery = true)
     List<Book> listAllUniqueBookTitles();
 
-    @Query("select distinct b.author from book b order by b.author")
+    @Query(value = "select distinct b.author from book b order by b.author", nativeQuery = true)
     List<Book> listAllUniqueBookAuthors();
 }

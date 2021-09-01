@@ -23,6 +23,5 @@ public class User {
     private String address;
     private String email;
     private String password;
-    private List<Book> booksInPossession = new ArrayList<>();
     private Role role;
 }
