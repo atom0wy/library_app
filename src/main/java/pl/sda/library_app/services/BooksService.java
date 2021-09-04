@@ -38,11 +38,8 @@ public class BooksService {
     }
 
 
-    public void save(Book book) {
-        if (booksRepository.findById(book.getId()).isPresent()) {
-            throw new BookAlreadyExistsException("Book already exists: " + book.getId());
-        }
-        booksRepository.save(book);
+    public Book save(Book book) {
+        return booksRepository.save(book);
     }
 
 
