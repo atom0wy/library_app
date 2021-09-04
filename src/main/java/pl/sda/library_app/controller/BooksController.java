@@ -37,14 +37,14 @@ public class BooksController {
     //creating post mapping that post the book detail in the database
     @PostMapping
     private Long save(@RequestBody Book book) {
-        booksService.saveOrUpdate(book);
+        booksService.save(book);
         return book.getId();
     }
 
     //creating put mapping that updates the book detail
     @PutMapping
     private Book update(@RequestBody Book book) {
-        booksService.saveOrUpdate(book);
+        booksService.update(book);
         return book;
     }
 }
