@@ -1,7 +1,6 @@
 package pl.sda.library_app.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.library_app.models.Book;
 import pl.sda.library_app.services.BooksService;
@@ -19,18 +18,18 @@ public class BooksController {
     //creating a get mapping that retrieves all the books detail from the database
     @GetMapping
     private List<Book> getAll() {
-        return booksService.getAllBooks();
+        return booksService.getAll();
     }
 
     //creating a get mapping that retrieves the detail of a specific book
-    @GetMapping("/{bookId}")
-    private Book getById(@PathVariable("bookId") Long bookId) {
-        return booksService.getBooksById(bookId);
+    @GetMapping("/{BOOK_ID}")
+    private Book getById(@PathVariable("BOOK_ID") Long bookId) {
+        return booksService.getById(bookId);
     }
 
     //creating a delete mapping that deletes a specified book
-    @DeleteMapping("/{bookId}")
-    private void delete(@PathVariable("bookId") Long bookId) {
+    @DeleteMapping("/{BOOK_ID}")
+    private void delete(@PathVariable("BOOK_ID") Long bookId) {
         booksService.delete(bookId);
     }
 

@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Table(name = "books")
 public class Book {
     @Id
-    @Column(name = "bookId")
+    @Column(name = "BOOK_ID")
     private Long id;
 
     private String title;
