@@ -12,8 +12,7 @@ public class Demo {
 
     //    what to paste in MAIN:
     /*try {
-        Scanner scanner = new Scanner(System.in);
-        demo(scanner);
+        demo();
     } catch (RuntimeException e) {
         System.out.println("Demo class exception");
         e.printStackTrace();
@@ -21,8 +20,10 @@ public class Demo {
     //    creating LOGGER
     private static final Logger LOGGER = Logger.getLogger(Demo.class.getName());
 
-    public static void demo(Scanner scanner) {
+    public static void demo() {
 
+//        Creating a scanner
+    Scanner scanner = new Scanner(System.in);
 
 //        Logging in and authorising or registering a new user
         System.out.println("Welcome to demo of library_app application. " +
