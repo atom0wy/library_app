@@ -5,8 +5,7 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 /**
- * A autonomous class created with a purpuse of showcasing library_app and its planned features
- * TODO: Add option to check books in users possession (using list)
+ * A autonomous class created with a purpose of showcasing library_app and its planned features
  */
 
 public class Demo {
@@ -65,13 +64,14 @@ public class Demo {
 //        Using library
         do {
             if (userIsAdministrator) {
-                System.out.println("What would you like to do next Admin?\n"
+                System.out.println("\nWhat would you like to do next Admin?\n"
                         + "1 <Lend a book> \n"
                         + "2 <Return a book> \n"
-                        + "3 <Check availibility of a given book> \n"
+                        + "3 <Check availability of a given book> \n"
+                        + "4 <Check books in your possession> \n"
                         + "ADMIN ZONE: \n"
-                        + "4 <Add a book> \n"
-                        + "5 <Delete a book> \n"
+                        + "5 <Add a book> \n"
+                        + "6 <Delete a book> \n"
                         + "0 <EXIT>");
                 i = 0;
                 do {
@@ -89,16 +89,21 @@ public class Demo {
                                 i++;
                                 break;
                             case "3":
-                                LOGGER.info("Admin chose to check availibility of a book");
+                                LOGGER.info("Admin chose to check availability of a book");
                                 checkAvailability(scanner);
                                 i++;
                                 break;
                             case "4":
+                                LOGGER.info("Admin chose to check books in his possession");
+                                checkBooksInPossession(scanner);
+                                i++;
+                                break;
+                            case "5":
                                 LOGGER.info("Admin chose to add a book");
                                 addBook(scanner);
                                 i++;
                                 break;
-                            case "5":
+                            case "6":
                                 LOGGER.info("Admin chose to delete a book");
                                 deleteBook(scanner);
                                 i++;
@@ -114,10 +119,11 @@ public class Demo {
                     }
                 } while (i < 1);
             } else {
-                System.out.println("What would you like to do next?\n"
+                System.out.println("\nWhat would you like to do next?\n"
                         + "1 <Lend a book> \n"
                         + "2 <Return a book> \n"
-                        + "3 <Check availibility of a given book> \n"
+                        + "3 <Check availability of a given book> \n"
+                        + "4 <Check books in your possession> \n"
                         + "0 <EXIT>");
                 i = 0;
                 do {
@@ -135,8 +141,13 @@ public class Demo {
                                 i++;
                                 break;
                             case "3":
-                                LOGGER.info("User chose to check availibility of a book");
+                                LOGGER.info("User chose to check availability of a book");
                                 checkAvailability(scanner);
+                                i++;
+                                break;
+                            case "4":
+                                LOGGER.info("User chose to check books in his possession");
+                                checkBooksInPossession(scanner);
                                 i++;
                                 break;
                             case "0":
@@ -163,10 +174,12 @@ public class Demo {
             try {
                 System.out.println("Username:");
                 username = scanner.nextLine();
-                if (!username.equals("")) {
-                    i++;
-                } else {
+                if (username.equals("")) {
                     System.out.println("Username cannot be left empty.");
+                } else if (username.length() > 64) {
+                    System.out.println("Username cannot be longer than 64 characters.");
+                } else {
+                    i++;
                 }
             } catch (InputMismatchException e) {
                 LOGGER.info("User provided invalid username");
@@ -179,10 +192,12 @@ public class Demo {
             try {
                 System.out.println("Password:");
                 password = scanner.nextLine();
-                if (!password.equals("")) {
-                    i++;
-                } else {
+                if (password.equals("")) {
                     System.out.println("Password cannot be left empty.");
+                } else if (password.length() > 64) {
+                    System.out.println("Password cannot be longer than 64 characters.");
+                } else {
+                    i++;
                 }
             } catch (InputMismatchException e) {
                 LOGGER.info("User provided invalid password");
@@ -209,10 +224,12 @@ public class Demo {
             try {
                 System.out.println("Username:");
                 username = scanner.nextLine();
-                if (!username.equals("")) {
-                    i++;
-                } else {
+                if (username.equals("")) {
                     System.out.println("Username cannot be left empty.");
+                } else if (username.length() > 64) {
+                    System.out.println("Username cannot be longer than 64 characters.");
+                } else {
+                    i++;
                 }
             } catch (InputMismatchException e) {
                 LOGGER.info("User provided invalid username");
@@ -225,10 +242,12 @@ public class Demo {
             try {
                 System.out.println("Password:");
                 password = scanner.nextLine();
-                if (!password.equals("")) {
-                    i++;
-                } else {
+                if (password.equals("")) {
                     System.out.println("Password cannot be left empty.");
+                } else if (password.length() > 64) {
+                    System.out.println("Password cannot be longer than 64 characters.");
+                } else {
+                    i++;
                 }
             } catch (InputMismatchException e) {
                 LOGGER.info("User provided invalid password");
@@ -322,6 +341,27 @@ public class Demo {
 //        PLACEHOLDER ASSET, DELETE AFTERWARDS!
         String bookInfoPlaceholder = "BOOK_INFO_PLACEHOLDER";
         LOGGER.info("Book of ID: " + id
+                + "\nTitle: " + bookInfoPlaceholder
+                + "\nAuthor: " + bookInfoPlaceholder
+                + "\nYear of release: " + bookInfoPlaceholder
+                + "\nGenre: " + bookInfoPlaceholder
+                + "\nStatus is: " + bookInfoPlaceholder);
+    }
+
+    public static void checkBooksInPossession(Scanner scanner) {
+        LOGGER.info("CheckBooksInPossession method runs");
+        System.out.println("Here is a list of books in your possession:");
+//        PLACEHOLDER ASSET, DELETE AFTERWARDS!
+        String bookInfoPlaceholder = "BOOK_INFO_PLACEHOLDER";
+        System.out.println("\nPosition number: " + 1
+                + "\nBook of ID: " + bookInfoPlaceholder
+                + "\nTitle: " + bookInfoPlaceholder
+                + "\nAuthor: " + bookInfoPlaceholder
+                + "\nYear of release: " + bookInfoPlaceholder
+                + "\nGenre: " + bookInfoPlaceholder
+                + "\nStatus is: " + bookInfoPlaceholder);
+        System.out.println("\nPosition number: " + 2
+                + "\nBook of ID: " + bookInfoPlaceholder
                 + "\nTitle: " + bookInfoPlaceholder
                 + "\nAuthor: " + bookInfoPlaceholder
                 + "\nYear of release: " + bookInfoPlaceholder
