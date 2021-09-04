@@ -59,6 +59,7 @@ class BooksServiceTest extends BaseServiceTest {
 
         // then
         assertEquals(booksRepository.findById(12345L).get().getTitle(), book6.getTitle());
+//        assertEquals(booksService.getById(12345L).getTitle(), book6.getTitle());
     }
 
 }

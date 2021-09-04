@@ -9,6 +9,6 @@ import java.util.UUID;
 //repository that extends CrudRepository
 public interface BooksRepository extends CrudRepository<Book, Long> {
 
-    @Query(value = "select b.* from books b where b.bookId = ?", nativeQuery = true)
-    boolean bookExists(Long bookId);
+    @Query(value = "select b.* from books b where b.BOOK_ID = ?", nativeQuery = true)
+    Boolean bookExists(Long bookId);
 }
