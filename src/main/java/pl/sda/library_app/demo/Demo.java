@@ -24,7 +24,7 @@ public class Demo {
     public static void demo(Scanner scanner) {
 
 
-//        Loging in and authorising or registering a new user
+//        Logging in and authorising or registering a new user
         System.out.println("Welcome to demo of library_app application. " +
                 "You can close the demo by pressing <0> on your keyboard at any time. \n" +
                 "First, create new user: or login as an admin: \n"
