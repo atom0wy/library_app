@@ -1,10 +1,9 @@
 package pl.sda.library_app.dto;
 
 import lombok.Data;
-import pl.sda.library_app.models.Book;
 import pl.sda.library_app.enumerated.Role;
+import pl.sda.library_app.models.Book;
 
-import javax.persistence.Entity;
 import java.util.ArrayList;
 import java.util.List;
 

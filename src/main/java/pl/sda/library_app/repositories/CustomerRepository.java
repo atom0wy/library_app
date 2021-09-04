@@ -2,8 +2,6 @@ package pl.sda.library_app.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import pl.sda.library_app.enumerated.BookStatus;
-import pl.sda.library_app.models.Book;
 import pl.sda.library_app.models.User;
 
 import java.util.List;
