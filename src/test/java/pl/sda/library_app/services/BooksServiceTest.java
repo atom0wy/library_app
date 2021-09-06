@@ -3,7 +3,7 @@ package pl.sda.library_app.services;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import pl.sda.library_app.enumerated.BookStatus;
-import pl.sda.library_app.exceptions.BookDoesNotExistsException;
+import pl.sda.library_app.exceptions.BookDoesNotExistException;
 import pl.sda.library_app.models.Book;
 import pl.sda.library_app.repositories.BooksRepository;
 
@@ -36,7 +36,7 @@ class BooksServiceTest extends BaseServiceTest {
         booksRepository.save(book5);
 
         // then
-        assertThrows(BookDoesNotExistsException.class, () -> booksService.update(book6));
+        assertThrows(BookDoesNotExistException.class, () -> booksService.update(book6));
     }
 
     @Test

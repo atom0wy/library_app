@@ -13,11 +13,9 @@ public class UserDto {
     private Long id;
 
     private String name;
-    private String surname;
-    private int telephoneNumber;
+    private String lastName;
     private String adress;
     private String email;
     private String password;
     private Role role;
-    private List<Book> booksInPossession = new ArrayList<>();
 }

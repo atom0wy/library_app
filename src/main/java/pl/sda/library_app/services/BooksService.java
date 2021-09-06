@@ -1,10 +1,7 @@
 package pl.sda.library_app.services;
 
-import com.sun.istack.NotNull;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.stereotype.Service;
-import pl.sda.library_app.exceptions.BookAlreadyExistsException;
-import pl.sda.library_app.exceptions.BookDoesNotExistsException;
+import pl.sda.library_app.exceptions.BookDoesNotExistException;
 import pl.sda.library_app.models.Book;
 import pl.sda.library_app.repositories.BooksRepository;
 
@@ -33,7 +30,7 @@ public class BooksService {
 
     public Book getById(Long id) {
         return booksRepository.findById(id).orElseThrow(
-                () -> new BookDoesNotExistsException("Book does not exists: " + id)
+                () -> new BookDoesNotExistException("Book does not exists: " + id)
         );
     }
 
@@ -50,7 +47,7 @@ public class BooksService {
 
     public void update(Book book) {
         if (getById(book.getId()).equals(book)){
-            throw new BookDoesNotExistsException("Book does not exists: " + book.getId());
+            throw new BookDoesNotExistException("Book does not exists: " + book.getId());
         }
 //        if (booksRepository.findById(book.getId()).isEmpty()) {
 //            throw new BookDoesNotExistsException("Book does not exists: " + book.getId());
