@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Library App</title>
-    <link rel="icon" href="images/favicon.ico"/>
+    <link rel="icon" href="..\static\images\favicon.ico"/>
     <meta name="description" content="Library App"/>
     <meta name="keywords" content="library, app, webpage, java, html"/>
     <meta name="author" content="Adam Dyczkowski"/>
@@ -27,20 +27,42 @@
     </p>
 </nav>
 
+<!-- Index Section -->
+<h2>Welcome to the Library App!</h2>
+<section>
+    <p>
+        What is it?
+        <q>
+            <i>
+                A web application for books rentals and returns
+            </i>
+        </q>
+    </p>
+    <p>
+        What we do?
+        <q>
+            <i>
+                We help you develop!
+            </i>
+        </q>
+    </p>
+</section>
+<!-- Register Section -->
+<div>
+    <div>
+        <h3>Join us now!</h3>
+        <p>A virtually endless stock of books at your fingertips!</p>
+        <button><a href="register">Register</a></button>
+    </div>
+</div>
 <!-- Login Section -->
-<h2>Login to existing account:</h2>
-<div th:if="${param.error}">
-    Invalid username and password.
+<div>
+    <div>
+        <h3>You already have an account?</h3>
+        <p>We are glad to see you back, login by clicking the button below!</p>
+        <button><a href="login">Login</a></button>
+    </div>
 </div>
-<div th:if="${param.logout}">
-    You have been logged out.
-</div>
-<form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="username" required/> </label></div>
-    <br/>
-    <div><label> Password: <input type="password" name="password" required/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
-</form>
 
 <!-- Footer Section -->
 <br/>

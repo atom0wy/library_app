@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Library App</title>
+    <link rel="icon" href="images/favicon.ico"/>
+    <meta name="description" content="Library App"/>
+    <meta name="keywords" content="library, app, webpage, java, html"/>
+    <meta name="author" content="Adam Dyczkowski"/>
+</head>
+
+<body>
+<!-- Navbar Section -->
+<nav id="navbar">
+    <p>
+        <a href="index">Home</a>
+    </p>
+    <p>
+        <a href="account">Account</a>
+        <a href="login">Login</a>
+        <a href="register">Register</a>
+    </p>
+</nav>
+
+<!-- Account Section -->
+<h2 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]] to your account page!</h2>
+<!-- Services Section -->
+<div>
+    <div>
+        <div>
+            <h3>Lent a book</h3>
+            <p>We have all the most interesting books!</p>
+            <div>
+                <button>Browse</button>
+            </div>
+        </div>
+        <div>
+            <h3>Return a book</h3>
+            <p>By clicking below you can view your currently borrowed books.</p>
+            <div>
+                <button>Borrowed books</button>
+            </div>
+        </div>
+        <div>
+            <h3>Offer your own book</h3>
+            <p>Become part of our community.</p>
+            <div>
+                <button>Add a book</button>
+            </div>
+        </div>
+        <div>
+            <h3>Remove the book you borrowed</h3>
+            <p>Some treasures should be kept hidden, and we totally get that!</p>
+            <div>
+                <button>Remove a book from collection</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Logout Section -->
+<br/>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+
+<!-- Footer Section -->
+<br/>
+<footer>
+    <div>
+        <p>© Library 2021. All rights reserved
+            <br/>
+            -by Adam Dyczkowski and Karol Siezieniewski
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>
