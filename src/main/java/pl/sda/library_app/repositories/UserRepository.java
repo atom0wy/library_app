@@ -6,7 +6,7 @@ import pl.sda.library_app.models.User;
 
 import java.util.List;
 
-public interface CustomerRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query(value = "select * from user where upper(first_name) like upper(?) and upper(last_name) like upper(?)", nativeQuery = true)
     List<User> findAllByFirstNameIgnoreCaseLikeAndLastNameIgnoreCaseLike(String name, String surname);
@@ -21,5 +21,5 @@ public interface CustomerRepository extends JpaRepository<User, Long> {
     List<User> findAllByAddressesCityIgnoreCase(String address);
 
     @Query(value = "select (count(u.id) > 0) from user u where upper(u.email) = upper(?1)", nativeQuery = true)
-    boolean hasCustomerWithEmail(String email);
+    boolean emailExist(String email);
 }
