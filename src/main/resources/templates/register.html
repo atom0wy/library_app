@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Library App</title>
+    <link rel="icon" href="images/favicon.ico"/>
+    <meta name="description" content="Library App"/>
+    <meta name="keywords" content="library, app, webpage, java, html"/>
+    <meta name="author" content="Adam Dyczkowski"/>
+</head>
+
+<body>
+<!-- Navbar Section -->
+<nav id="navbar">
+    <p>
+        <a href="index">Home</a>
+    </p>
+    <p>
+        <a href="account">Account</a>
+        <a href="login">Login</a>
+        <a href="register">Register</a>
+    </p>
+</nav>
+
+<!-- Register Section -->
+<h2>Register new account:</h2>
+<form action="" method="GET">
+    <p>Username: <input type="text" name="username" placeholder="Enter your login" size="20" maxlength="64" required>*
+    </p>
+    <p>Password: <input type="password" name="password" placeholder="Enter the password" size="20" maxlength="64"
+                        required>*</p>
+    <p>Email: <input type="email" name="email" placeholder="example@mail.com" size="20" maxlength="64" required>*</p>
+    <p>How many books you own? <input type="number" name="books"></p>
+    <p>Gender:</p>
+    <p><label><input type="radio" name="gender" value="woman" checked="checked">Kobieta</label></p>
+    <p><label><input type="radio" name="gender" value="man">Mężczyzna</label></p>
+    <p>Consent:</p>
+    <p><label><input type="checkbox" name="consent" value="Sending mailing offers">Sending mailing offers</label></p>
+    <p><label><input type="checkbox" name="consent" value="Processing of personal data">Processing of personal
+        data</label>*</p>
+    <textarea name="contact" rows="5" cols="30" placeholder="Contact us!">Contact us!</textarea>
+    <br/>
+    <span>* - field required</span>
+    <p><input type="submit" value="Submit">
+        <input type="reset" value="Reset"></p>
+</form>
+
+<!-- Footer Section -->
+<footer>
+    <div>
+        <p>© Library 2021. All rights reserved
+            <br/>
+            -by Adam Dyczkowski and Karol Siezieniewski
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>
