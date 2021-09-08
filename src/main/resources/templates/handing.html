@@ -28,23 +28,24 @@
 </nav>
 
 <!-- Register Section -->
-<h2>Register new account:</h2>
+<h2>Hand over a new book:</h2>
 <form action="" method="GET">
-    <p>Username: <input type="text" name="username" placeholder="Enter your login" size="20" maxlength="64" required>*
+    <p>Title: <input type="text" name="username" placeholder="Enter your login" size="20" maxlength="64" required>*
     </p>
-    <p>Password: <input type="password" name="password" placeholder="Enter the password" size="20" maxlength="64"
-                        required>*</p>
-    <p>Email: <input type="email" name="email" placeholder="example@mail.com" size="20" maxlength="64" required>*</p>
-    <p>How many books you own? <input type="number" name="books"></p>
-    <p>Gender:</p>
-    <p><label><input type="radio" name="gender" value="woman" checked="checked">Kobieta</label></p>
-    <p><label><input type="radio" name="gender" value="man">Mężczyzna</label></p>
-    <p>Consent:</p>
-    <p><label><input type="checkbox" name="consent" value="Sending mailing offers">Sending mailing offers</label></p>
-    <p><label><input type="checkbox" name="consent" value="Processing of personal data">Processing of personal
-        data</label>*</p>
-    <textarea name="contact" rows="5" cols="30" placeholder="Contact us!">Contact us!</textarea>
-    <br/>
+    <p>Author: <input type="text" name="username" placeholder="Enter your login" size="20" maxlength="64" required>*
+    </p>
+    <p>Year of release: <input type="number" min="0" max="9999" name="books"></p>
+    <p>Genre:</p>
+    <p><select name="nazwa" size="6" multiple="multiple">
+        <option selected="selected">Fiction</option>
+        <option>Thriller</option>
+        <option>Horror</option>
+        <option>Historical</option>
+        <option>Romance</option>
+        <option>Science Fiction</option>
+        <option>Fantasy</option>
+        <option>Other</option>
+    </select></p>
     <span>* - field required</span>
     <p><input type="submit" value="Submit">
         <input type="reset" value="Reset"></p>
