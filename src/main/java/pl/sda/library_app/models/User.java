@@ -1,6 +1,8 @@
 package pl.sda.library_app.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import pl.sda.library_app.enumerated.Role;
@@ -14,6 +16,7 @@ import java.util.List;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

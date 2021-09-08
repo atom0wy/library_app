@@ -17,13 +17,13 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserService {
 
-    private final UserRepository customerRepository;
+    private final UserRepository userRepository;
 
     private PasswordEncoder passwordEncoder;
 
     public User registerNewUserAccount(UserDto accountDto) throws EmailAlreadyExistsException {
 
-        if (customerRepository.emailExist(accountDto.getEmail())) {
+        if (userRepository.emailExist(accountDto.getEmail())) {
             throw new EmailAlreadyExistsException
                     ("There is an account with that email adress: " + accountDto.getEmail());
         }
@@ -36,27 +36,29 @@ public class UserService {
         user.setAddress(accountDto.getAdress());
         user.setRole(Role.USER);
 
-        return customerRepository.save(user);
+        return userRepository.save(user);
     }
 
     public List<User> getAll() {
-        return new ArrayList<>(customerRepository.findAll());
+        List<User> userList = new ArrayList<>();
+        userRepository.findAll().forEach(userList::add);
+        return userList;
     }
 
     public User getById(Long id) {
-        return customerRepository.findById(id).orElseThrow(
+        return userRepository.findById(id).orElseThrow(
                 () -> new UserDoesNotExistException("User does not exist: " + id)
         );
     }
 
     public void delete(Long id) {
-        customerRepository.deleteById(id);
+        userRepository.deleteById(id);
     }
 
     public void update(User user) {
-        if (customerRepository.findById(user.getId()).isEmpty()) {
+        if (userRepository.findById(user.getId()).isEmpty()) {
             throw new UserDoesNotExistException("User does not exists: " + user.getId());
         }
-        customerRepository.save(user);
+        userRepository.save(user);
     }
 }
