@@ -17,6 +17,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +25,9 @@ public class User {
 
     private String name;
     private String lastName;
+    private String password;
     private String address;
     private String email;
-    private String password;
     @OneToMany
     @Cascade(CascadeType.ALL)
     private List<Book> bookList;
