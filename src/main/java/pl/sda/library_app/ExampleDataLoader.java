@@ -25,6 +25,6 @@ class ExampleDataLoader {
     @Transactional
     @EventListener
     public void onApplicationLoad(ApplicationReadyEvent event) {
-        booksRepository.save(new Book(12345L, "Night", "Joe", "1990", "Horror", BookStatus.IN_STOCK));
+        booksRepository.save(new Book("Day", "Joe", "1990", "Horror", BookStatus.IN_STOCK));
     }
 }
