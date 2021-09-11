@@ -22,11 +22,13 @@ class OrderServiceTest extends BaseServiceTest {
     private OrderRepository orderRepository;
 
     @Test
-    void shouldMakeOrderWithDefaultDeliveryCost() {
+    void shouldMakeOrder() {
         // given
         final var user = new User();
+        final var bookDto = new BookDto("Power", "Bob Writer", "2020", "Fantasy", BookStatus.IN_STOCK);
+        final var bookDto2 = new BookDto("Power", "Bob Writer", "2020", "Fantasy", BookStatus.IN_STOCK);
         persistAndClearCache(user);
-        final var form = new MakeOrderForm(user.getId(), List.of(new BookDto(123456L, "Power", "Bob Writer", "2020", "Fantasy", BookStatus.IN_STOCK)));
+        final var form = new MakeOrderForm(user.getId(), List.of(bookDto, bookDto2));
 
         // when
         final var orderId = orderService.makeOrder(form);

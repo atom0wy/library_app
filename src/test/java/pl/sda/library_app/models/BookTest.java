@@ -10,7 +10,7 @@ class BookTest extends EntityBaseTest {
     @Test
     void shouldSaveBookInDatabase() {
         // given
-        final var book = new Book(1234L, "Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
+        final var book = new Book("Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
 
         // when
         persistAndClearCache(book);
