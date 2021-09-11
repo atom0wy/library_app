@@ -7,20 +7,26 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import pl.sda.library_app.enumerated.Role;
 
+import javax.annotation.security.DeclareRoles;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "users")
+@DeclareRoles({"ADMIN", "USER"})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "USER_ID")
     private Long id;
 
     private String name;
@@ -32,4 +38,13 @@ public class User {
     @Cascade(CascadeType.ALL)
     private List<Book> bookList;
     private Role role;
+
+    public User(String name, String lastName, String password, String address, String email) {
+        this.name = name;
+        this.lastName = lastName;
+        this.password = password;
+        this.address = address;
+        this.email = email;
+        this.role = Role.USER;
+    }
 }

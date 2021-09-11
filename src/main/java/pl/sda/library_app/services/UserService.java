@@ -1,6 +1,7 @@
 package pl.sda.library_app.services;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.sda.library_app.dto.UserDto;
@@ -19,35 +20,33 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
-    public User registerNewUserAccount(UserDto accountDto) throws EmailAlreadyExistsException {
+    public User registerUser(UserDto userDto) throws EmailAlreadyExistsException {
 
-        if (userRepository.emailExist(accountDto.getEmail())) {
+        if (userRepository.emailExist(userDto.getEmail())) {
             throw new EmailAlreadyExistsException
-                    ("There is an account with that email adress: " + accountDto.getEmail());
+                    ("An account already exists with provided email adress: " + userDto.getEmail());
         }
         User user = new User();
 
-        user.setName(accountDto.getName());
-        user.setLastName(accountDto.getLastName());
-        user.setPassword(passwordEncoder.encode(accountDto.getPassword()));
-        user.setEmail(accountDto.getEmail());
-        user.setAddress(accountDto.getAdress());
+        user.setName(userDto.getName());
+        user.setLastName(userDto.getLastName());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setEmail(userDto.getEmail());
+        user.setAddress(userDto.getAdress());
         user.setRole(Role.USER);
 
         return userRepository.save(user);
     }
 
     public List<User> getAll() {
-        List<User> userList = new ArrayList<>();
-        userRepository.findAll().forEach(userList::add);
-        return userList;
+        return userRepository.findAll();
     }
 
     public User getById(Long id) {
         return userRepository.findById(id).orElseThrow(
-                () -> new UserDoesNotExistException("User does not exist: " + id)
+                () -> new UserDoesNotExistException("User does not exist")
         );
     }
 
@@ -57,7 +56,7 @@ public class UserService {
 
     public void update(User user) {
         if (userRepository.findById(user.getId()).isEmpty()) {
-            throw new UserDoesNotExistException("User does not exists: " + user.getId());
+            throw new UserDoesNotExistException("User does not exists");
         }
         userRepository.save(user);
     }

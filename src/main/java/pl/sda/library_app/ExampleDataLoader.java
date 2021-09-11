@@ -26,5 +26,6 @@ class ExampleDataLoader {
     @EventListener
     public void onApplicationLoad(ApplicationReadyEvent event) {
         booksRepository.save(new Book("Day", "Joe", "1990", "Horror", BookStatus.IN_STOCK));
+        userRepository.save(new User("Anne", "Doe", "1234", "Baker Street 123, London", "Anne.Doe@gmail.com"));
     }
 }
