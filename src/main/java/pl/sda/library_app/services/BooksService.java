@@ -50,7 +50,7 @@ public class BooksService {
             throw new BookDoesNotExistException("Book does not exists: " + book.getId());
         }
 //        if (booksRepository.findById(book.getId()).isEmpty()) {
-//            throw new BookDoesNotExistsException("Book does not exists: " + book.getId());
+//            throw new BookDoesNotExistException("Book does not exists: " + book.getId());
 //        }
         booksRepository.save(book);
     }

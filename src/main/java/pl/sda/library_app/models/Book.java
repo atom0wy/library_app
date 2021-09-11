@@ -29,4 +29,12 @@ public class Book {
     private String yearOfRelease;
     private String genre;
     private BookStatus status;
+
+    public Book(String title, String author, String yearOfRelease, String genre, BookStatus status) {
+        this.title = title;
+        this.author = author;
+        this.yearOfRelease = yearOfRelease;
+        this.genre = genre;
+        this.status = status;
+    }
 }

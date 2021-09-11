@@ -1,5 +1,7 @@
 package pl.sda.library_app.models;
 
+import pl.sda.library_app.enumerated.BookStatus;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -40,6 +42,9 @@ public class Order {
         notEmpty(bookList, "Books list is empty");
         this.userId = userId;
         this.bookList = bookList;
+        for(Book book : bookList){
+            book.setStatus(BookStatus.LENT);
+        }
         this.rentDate = LocalDateTime.now();
         this.mandatoryReturnDate = rentDate.plus(2, ChronoUnit.WEEKS);
     }

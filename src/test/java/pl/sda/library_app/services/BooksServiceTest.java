@@ -21,12 +21,12 @@ class BooksServiceTest extends BaseServiceTest {
     @Test
     void shouldNotUpdateBookThatDoesNotExist() {
         // given
-        final var book = new Book(1234L, "Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
-        final var book2 = new Book(12345L, "Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
-        final var book3 = new Book(12346L, "Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
-        final var book4 = new Book(12347L, "Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
-        final var book5 = new Book(12348L, "Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
-        final var book6 = new Book(123489L, "Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
+        final var book = new Book("Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
+        final var book2 = new Book("Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
+        final var book3 = new Book( "Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
+        final var book4 = new Book("Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
+        final var book5 = new Book("Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
+        final var book6 = new Book(12345L, "Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
 
         // when
         booksRepository.save(book);
@@ -42,24 +42,28 @@ class BooksServiceTest extends BaseServiceTest {
     @Test
     void shouldUpdateBook() {
         // given
-        final var book = new Book(1234L, "Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
-        final var book2 = new Book(12345L, "Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
-        final var book3 = new Book(12346L, "Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
-        final var book4 = new Book(12347L, "Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
-        final var book5 = new Book(12348L, "Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
-        final var book6 = new Book(12345L, "Night123", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
+        final var book = new Book("Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
+        final var book1 = new Book(2L, "Night123", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
 
         // when
         booksRepository.save(book);
-        booksRepository.save(book2);
-        booksRepository.save(book3);
-        booksRepository.save(book4);
-        booksRepository.save(book5);
-        booksService.update(book6);
+        booksService.update(book1);
+
 
         // then
-        assertEquals(booksRepository.findById(12345L).get().getTitle(), book6.getTitle());
-//        assertEquals(booksService.getById(12345L).getTitle(), book6.getTitle());
+        assertEquals(booksRepository.findById(2L).get().getTitle(), book1.getTitle());
+    }
+
+    @Test
+    void shouldFindExistingBook() {
+        // given
+        Book book = new Book("Night", "Joe Doe", "2000", "Horror", BookStatus.IN_STOCK);
+
+        // when
+        booksRepository.save(book);
+
+        // then
+        assertEquals(true, booksRepository.existsById(2L));
     }
 
 }
