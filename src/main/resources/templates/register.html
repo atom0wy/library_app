@@ -29,7 +29,7 @@
 
 <!-- Register Section -->
 <h2>Register new account:</h2>
-<form action="" method="GET">
+<form th:action="@{/register}" method="post">
     <p>Name: <input type="text" name="name" placeholder="Enter your name" size="20" maxlength="64" required>*
     </p>
     <p>Last name: <input type="text" name="lastName" placeholder="Enter your last name" size="20" maxlength="64"
