@@ -28,8 +28,8 @@ class BookTest {
 
         // then
         Book readBook = new Book();
-        if(booksRepository.findById(2L).isPresent()) {
-            readBook = booksRepository.findById(2L).get();
+        if(booksRepository.findById(6L).isPresent()) {
+            readBook = booksRepository.findById(6L).get();
         }
         assertEquals(readBook, book);
 

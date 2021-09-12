@@ -6,6 +6,6 @@ import pl.sda.library_app.models.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Query(value = "select (count(u.USER_ID) > 0) from users u where upper(u.email) = upper(?1)", nativeQuery = true)
+    @Query(value = "select (count(u.id) > 0) from users u where upper(u.email) = upper(?1)", nativeQuery = true)
     boolean emailExist(String email);
 }

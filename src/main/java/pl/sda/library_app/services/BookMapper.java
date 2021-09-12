@@ -1,8 +1,10 @@
 package pl.sda.library_app.services;
 
+import org.springframework.stereotype.Service;
 import pl.sda.library_app.dto.BookDto;
 import pl.sda.library_app.models.Book;
 
+@Service
 public class BookMapper {
     public Book mapDtoToEntity(BookDto bookDto) {
         Book bookEntity = new Book();
