@@ -18,12 +18,12 @@
 <!-- Navbar Section -->
 <nav id="navbar">
     <p>
-        <a href="index">Home</a>
+        <a href="http://localhost:8989/index">Home</a>
     </p>
     <p>
-        <a href="account">Account</a>
-        <a href="login">Login</a>
-        <a href="register">Register</a>
+        <a href="http://localhost:8989/account">Account</a>
+        <a href="http://localhost:8989/login">Login</a>
+        <a href="http://localhost:8989/register">Register</a>
     </p>
 </nav>
 
@@ -48,7 +48,7 @@
             <span th:text="${book.genre}">Default</span>
         </i><br/>
 
-        <form action="${pageContext.request.contextPath}/myservlet" method="post">
+        <form th:action="'/catalog/' + ${book.id} + '/order'" method="post">
             <input type="submit" name="button1" value="Order"/>
         </form>
 
