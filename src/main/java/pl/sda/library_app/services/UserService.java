@@ -1,7 +1,6 @@
 package pl.sda.library_app.services;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.sda.library_app.dto.UserDto;
@@ -11,7 +10,6 @@ import pl.sda.library_app.exceptions.UserDoesNotExistException;
 import pl.sda.library_app.models.User;
 import pl.sda.library_app.repositories.UserRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

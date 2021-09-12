@@ -27,7 +27,7 @@ class UserServiceTest {
         userService.registerUser(userDto);
 
         // then
-        assertEquals(userRepository.findById(2L).get().getName(), userDto.getName());
+        assertEquals(userRepository.findById(3L).get().getName(), userDto.getName());
     }
 
 
