@@ -27,11 +27,32 @@
     </p>
 </nav>
 
-<!-- Index Section -->
+<!-- Catalog Section -->
 <h2>Catalog of books that you can lent, all in stock!</h2>
 <ul>
     <li th:each="book : ${books}">
-        <span th:text="${book.title}">Default</span>
+        <b>Title:</b>
+        <i>
+            <span th:text="${book.title}">Default</span>
+        </i><br/>
+        <b>Author:</b>
+        <i>
+            <span th:text="${book.author}">Default</span>
+        </i><br/>
+        <b>Year Of Release:</b>
+        <i>
+            <span th:text="${book.yearOfRelease}">Default</span>
+        </i><br/>
+        <b>Genre:</b>
+        <i>
+            <span th:text="${book.genre}">Default</span>
+        </i><br/>
+
+        <form action="${pageContext.request.contextPath}/myservlet" method="post">
+            <input type="submit" name="button1" value="Order"/>
+        </form>
+
+        <br/>
     </li>
 </ul>
 

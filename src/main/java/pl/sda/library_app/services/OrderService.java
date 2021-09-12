@@ -1,5 +1,6 @@
 package pl.sda.library_app.services;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.sda.library_app.dto.BookDto;
@@ -17,21 +18,17 @@ import static java.util.stream.Collectors.toList;
 public class OrderService {
 
     private final OrderRepository orderRepository;
+    private final BookMapper bookMapper;
 
-    public OrderService(OrderRepository orderRepository) {
+    public OrderService(OrderRepository orderRepository, BookMapper bookMapper) {
         this.orderRepository = requireNonNull(orderRepository);
+        this.bookMapper = requireNonNull(bookMapper);
     }
 
     @Transactional
     public Long makeOrder(MakeOrderForm form) {
-        final Order order = new Order(form.getCustomerId(), mapBooks(form.getBooks()));
+        final Order order = new Order(form.getCustomerId(), bookMapper.mapDtoToEntity(form.getBook()));
         orderRepository.save(order);
         return order.getId();
-    }
-
-    private List<Book> mapBooks(List<BookDto> books) {
-        return books.stream()
-                .map(b -> new Book(b.getTitle(),b.getAuthor(),b.getYearOfRelease(),b.getGenre(),b.getStatus()))
-                .collect(toList());
     }
 }

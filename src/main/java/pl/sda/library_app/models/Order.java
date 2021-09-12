@@ -31,19 +31,17 @@ public class Order {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "order_id")
-    private List<Book> bookList;
+    private Book book;
 
     private LocalDateTime rentDate;
     private LocalDateTime mandatoryReturnDate;
 
-    public Order(Long userId, List<Book> bookList) {
+    public Order(Long userId, Book book) {
         notNull(userId, "User Id is null");
-        notEmpty(bookList, "Books list is empty");
+        notNull(book, "Book is null");
         this.userId = userId;
-        this.bookList = bookList;
-        for(Book book : bookList){
-            book.setStatus(BookStatus.LENT);
-        }
+        book.setStatus(BookStatus.LENT);
+        this.book = book;
         this.rentDate = LocalDateTime.now();
         this.mandatoryReturnDate = rentDate.plus(2, ChronoUnit.WEEKS);
     }
@@ -56,8 +54,8 @@ public class Order {
         return userId;
     }
 
-    public List<Book> getBookList() {
-        return bookList;
+    public Book getBook() {
+        return book;
     }
 
     public LocalDateTime getRentDate() {
@@ -73,12 +71,12 @@ public class Order {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return Objects.equals(id, order.id) && Objects.equals(userId, order.userId) && Objects.equals(bookList, order.bookList) && Objects.equals(rentDate, order.rentDate) && Objects.equals(mandatoryReturnDate, order.mandatoryReturnDate);
+        return Objects.equals(id, order.id) && Objects.equals(userId, order.userId) && Objects.equals(book, order.book) && Objects.equals(rentDate, order.rentDate) && Objects.equals(mandatoryReturnDate, order.mandatoryReturnDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, bookList, rentDate, mandatoryReturnDate);
+        return Objects.hash(id, userId, book, rentDate, mandatoryReturnDate);
     }
 
     @Override
@@ -86,7 +84,7 @@ public class Order {
         return "Order{" +
                 "id=" + id +
                 ", userId=" + userId +
-                ", bookList=" + bookList +
+                ", bookList=" + book +
                 ", rentDate=" + rentDate +
                 ", mandatoryReturnDate=" + mandatoryReturnDate +
                 '}';
