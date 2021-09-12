@@ -26,7 +26,7 @@ class OrderServiceTest extends BaseServiceTest {
         // given
         final var user = new User();
         final var bookDto = new BookDto("Power", "Bob Writer", "2020", "Fantasy", BookStatus.IN_STOCK);
-        final var bookDto2 = new BookDto("Power", "Bob Writer", "2020", "Fantasy", BookStatus.IN_STOCK);
+        final var bookDto2 = new BookDto("Weakness", "Bob Writer", "2020", "Fantasy", BookStatus.IN_STOCK);
         persistAndClearCache(user);
         final var form = new MakeOrderForm(user.getId(), List.of(bookDto, bookDto2));
 

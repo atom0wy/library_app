@@ -31,9 +31,7 @@ public class OrderService {
 
     private List<Book> mapBooks(List<BookDto> books) {
         return books.stream()
-                .map(b -> new Book(b.getId(), b.getTitle(),
-                        b.getAuthor(), b.getYearOfRelease(),
-                        b.getGenre(), b.getStatus()))
+                .map(b -> new Book(b.getTitle(),b.getAuthor(),b.getYearOfRelease(),b.getGenre(),b.getStatus()))
                 .collect(toList());
     }
 }
