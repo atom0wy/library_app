@@ -13,8 +13,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,7 +24,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
-@DeclareRoles({"ADMIN", "USER"})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,5 +47,11 @@ public class User {
         this.address = address;
         this.email = email;
         this.role = Role.USER;
+    }
+
+    public void addBook(Book book){
+        List<Book> bookList = new ArrayList(this.bookList);
+        bookList.add(book);
+        this.setBookList(bookList);
     }
 }

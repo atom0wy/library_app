@@ -1,5 +1,6 @@
 package pl.sda.library_app.models;
 
+import lombok.NoArgsConstructor;
 import pl.sda.library_app.enumerated.BookStatus;
 
 import javax.persistence.CascadeType;
@@ -20,6 +21,7 @@ import static org.springframework.util.Assert.notNull;
 
 @Entity
 @Table(name = "Orders")
+@NoArgsConstructor
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,9 +35,6 @@ public class Order {
 
     private LocalDateTime rentDate;
     private LocalDateTime mandatoryReturnDate;
-
-    public Order() {
-    }
 
     public Order(Long userId, List<Book> bookList) {
         notNull(userId, "User Id is null");
