@@ -35,10 +35,10 @@ public class UserRestController {
         userService.delete(userId);
     }
 
-    @PostMapping("/register")
-    private ResponseEntity<User> save(@RequestBody UserDto user) {
-        return ResponseEntity.ok(userService.registerUser(user));
-    }
+//    @PostMapping("/register")
+//    private ResponseEntity<User> save(@RequestBody UserDto user) {
+//        return ResponseEntity.ok(userService.registerUser(user));
+//    }
 //
 //    @PutMapping
 //    private User update(@RequestBody User user) {

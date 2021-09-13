@@ -21,22 +21,22 @@ class OrderServiceTest extends BaseServiceTest {
     @Autowired
     private OrderRepository orderRepository;
 
-    @Test
-    void shouldMakeOrder() {
-        // given
-        final var user = new User();
-        final var bookDto = new BookDto("Power", "Bob Writer", "2020", "Fantasy", BookStatus.IN_STOCK);
-        final var bookDto2 = new BookDto("Weakness", "Bob Writer", "2020", "Fantasy", BookStatus.IN_STOCK);
-        persistAndClearCache(user);
-        final var form = new MakeOrderForm(user.getId(), bookDto);
-
-        // when
-        final var orderId = orderService.makeOrder(form);
-
-        // then
-        assertNotNull(orderId);
-        final var createdOrder = orderRepository.getById(orderId);
-        assertEquals(orderId, createdOrder.getId());
-    }
+//    @Test
+//    void shouldMakeOrder() {
+//        // given
+//        final var user = new User();
+//        final var bookDto = new BookDto("Power", "Bob Writer", "2020", "Fantasy", BookStatus.IN_STOCK);
+//        final var bookDto2 = new BookDto("Weakness", "Bob Writer", "2020", "Fantasy", BookStatus.IN_STOCK);
+//        persistAndClearCache(user);
+//        final var form = new MakeOrderForm(user.getId(), bookDto);
+//
+//        // when
+//        final var orderId = orderService.makeOrder(form);
+//
+//        // then
+//        assertNotNull(orderId);
+//        final var createdOrder = orderRepository.getById(orderId);
+//        assertEquals(orderId, createdOrder.getId());
+//    }
 
 }

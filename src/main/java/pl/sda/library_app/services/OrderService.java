@@ -21,8 +21,8 @@ public class OrderService {
     }
 
     @Transactional
-    public Long makeOrder(MakeOrderForm form) {
-        final Order order = new Order(form.getCustomerId(), bookMapper.mapDtoToEntity(form.getBook()));
+    public Long makeOrder(Long bookId, String username) {
+        final Order order = new Order();
         orderRepository.save(order);
         return order.getId();
     }
